@@ -130,11 +130,21 @@ string.size()函数返回的既不是int类型、也不是unsigned类型
 
 不能令一个string变量加一个字符串字面值，因为为了兼容C语言，C++中的字符串字面值并不是标准库类型的string对象。字符串字面值和string是不同的类型
 
+### string到char* 的转化
+
+string有一个库函数 c_str()，返回值是一个C风格的字符串，可以用char*接受它的返回值
+
+![image-20210613003919308](C:\Users\my little airport\AppData\Roaming\Typora\typora-user-images\image-20210613003919308.png)
 
 
-### 3.3 vector标准库
+
+## 3.3 vector标准库
 
 向量容器支持高效的随机访问，高效尾插，一般实现为一个动态分配的数组。
+
+只能对确认已存在的元素执行下标操作，确保下标合法的手段就是尽量使用范围for
+
+vector和string的迭代器
 
 技巧：如果能够粗略估计出插入元素之后容器的大小，可以在插入之前用reserve函数确保空间的分配，避免插入的过程中多次重新分配空间
 
@@ -151,6 +161,46 @@ clear()清除
 迭代器的运算，没有加，只有减
 
 总体上向量容器的插入操作效率并不高，插入位置越靠前，执行插入所需要的时间就越多
+
+
+
+# Unit4
+
+## 左值和右值
+
+当一个对象被用作右值的时候，用的是对象的值(内容)，当对象被用作左值的时候，用的是对象的身份(在内存中的位置)
+
+### 重要原则：
+
+在需要右值的地方可以用左值代替，但是不能吧右值当成左值来使用
+
+## 赋值运算符
+
+赋值运算符的左侧运算对象必须是一个可修改的左值![image-20210613005125540](C:\Users\my little airport\AppData\Roaming\Typora\typora-user-images\image-20210613005125540.png)
+
+赋值运算符满足右结合律![image-20210613005358707](C:\Users\my little airport\AppData\Roaming\Typora\typora-user-images\image-20210613005358707.png)
+
+因为赋值运算符的优先级低于关系运算符，所以在条件语句中没复制部分通常应该加上括号。
+
+## 递增、递减运算符
+
+前置版本将对象本身作为左值返回，后置版本将对象原始值的副本作为右值返回![image-20210613010353075](C:\Users\my little airport\AppData\Roaming\Typora\typora-user-images\image-20210613010353075.png)
+
+## 位运算符
+
+![image-20210613011331618](C:\Users\my little airport\AppData\Roaming\Typora\typora-user-images\image-20210613011331618.png)
+
+### 移位<<和>>
+
+将左侧运算对象的内容按照右侧运算对象的要求移动指定的位数，然后将左侧运算对象的拷贝作为求值结果
+
+如果对char等类型进行移位运算，会产生提升操作，将char提升为int
+
+### 位与、位或、位异或
+
+![image-20210613012128839](C:\Users\my little airport\AppData\Roaming\Typora\typora-user-images\image-20210613012128839.png)
+
+
 
 # 四、deque容器
 
