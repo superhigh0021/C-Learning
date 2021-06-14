@@ -200,7 +200,63 @@ clear()清除
 
 ![image-20210613012128839](C:\Users\my little airport\AppData\Roaming\Typora\typora-user-images\image-20210613012128839.png)
 
+## sizeof运算符
 
+sizeof返回一条表达式或者一个类型名字占用的字节数
+
+## 类型转换
+
+### 隐式类型转换
+
+while(cin>>s)如果cin读取成功，得到true，如果失败，得到false
+
+### 显式类型转化
+
+![image-20210613144208017](C:\Users\my little airport\AppData\Roaming\Typora\typora-user-images\image-20210613144208017.png)
+
+#### static_cast
+
+任何具有明确定义的类型转换，只要不包含底层const，都可以用static_cast
+
+如下：double slope= static_cast<double>(j)/i;
+
+#### const_cast
+
+const_cast只能改变底层const
+
+将常量对象转换成非常量对象，即去掉const的性质
+
+
+
+# Unit5语句
+
+## 范围for语句
+
+冒号后面表示的必须是一个序列，比如用花括号括起来的初始化列表、数组、或者vector等对象，这些类型的共同类型是拥有能返回迭代器begin和end成员。
+
+## try语句块和异常处理
+
+throw表达式：异常检测部分使用throw表达式来表示它遇到了无法处理的问题。称作throw引发了异常
+
+try语句块：异常处理部分使用try语句块处理一场，try语句块以关键字try开始，并以一个或多个catch子句结束。try语句块中代码抛出的异常通常会被某个catch子句处理。因为catch子句“处理”异常
+
+
+
+## throw表达式
+
+throw表达式包含关键字throw和紧随其后的一个表达时，表达式的类型就是抛出的异常类型，抛出异常将终止当前的函数，并且将控制权转移给能处理该异常的代码
+
+## try语句块
+
+![image-20210614012950737](C:\Users\my little airport\AppData\Roaming\Typora\typora-user-images\image-20210614012950737.png)
+
+
+
+# Unit6 函数
+
+### 使用引用避免拷贝
+
+拷贝大的类类型对象或者容器对象比较低效，甚至有的类类型根本就不支持拷贝操作。最好使用易用形参访问该类型的对象
 
 # 四、deque容器
 
@@ -228,7 +284,7 @@ reverse()反转函数，是链表中的元素反转过来
 
 ***\*要用成员函数进行操作\****
 
-比如list容器不能用sort，但是可以v.sort() 此时就没有迭代器的两个参数了，只有升降序的那一个参数，而且还他妈要自己编
+比如list容器不能用sort，但是可以v.sort() 此时就没有迭代器的两个参数了，只有升降序的那一个参数，而且还他妈要自己 编
 
 # 六、stack容器
 
